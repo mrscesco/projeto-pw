@@ -16,3 +16,38 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+route::get('/minha/rota',
+function(){
+    echo'hello world';
+});
+
+route::get('/home/iniciar',
+function(){
+    echo' wellcome the page ' ;
+});
+
+route::get('/politica/{ano}/{titulo?}',
+function($ano , $titulo){
+    echo "<h1>" . implode("", explode(".",$titulo)) ."</h1>";
+});
+
+route::get('/politica/{dia}/{mes}/{ano}/{titulo?}',
+function($dia , $mes , $ano , $titulo){
+    echo "<h1>" . implode("", explode(".",$titulo)) ."</h1>";
+});
+
+route::get('/cadadstro/{id}',
+function($id = null){
+    echo $id == null ? "não tem id" : $id; 
+})->where("id","[0-9]+");
+
+route::Get('/cadastro/{nome}/{idade}',
+function($nome , $idade ){
+    $idade = 15;
+    echo $idade > 18 ? "menor de idade" : "maior de idade";
+})->where("idade","[1-100]+");
+
+route::get('/{operation}/{v1}/{v2}','App\Http\Controllers\aritmetcontroller@cal')
+    ->wherein("operation",['soma','subtracao','multiplicacao','divisao'])
+    ->where(["v1" => "[0-9]+" , "v2" => "[0-9]+"]);
