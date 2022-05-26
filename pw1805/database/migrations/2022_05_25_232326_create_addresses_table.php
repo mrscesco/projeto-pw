@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('address', function (Blueprint $table) {
+        Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->string('cep',8);
+            $table->string('zipcode',8);
             $table->string('street');
             $table->string('number');
             $table->string('district');
             $table->string('city');
-            $table->string('estate');
+            $table->string('state');
             $table->string('complement');
 
          /* chave estrangeira */

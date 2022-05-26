@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('donationreceipt', function (Blueprint $table) {
+        Schema::create('donationreceipts', function (Blueprint $table) {
             $table->id();
             $table->date('donationdate');
             $table->string('pontuacao');
@@ -27,7 +27,7 @@ return new class extends Migration
             $table->foreign('id_recipientUser')->references('id')->on('users'); 
 
             $table->unsignedBigInteger('id_donation');
-            $table->foreign('id_donation')->references('id')->on('donation'); 
+            $table->foreign('id_donation')->references('id')->on('donations'); 
 
             $table->timestamps();
         });

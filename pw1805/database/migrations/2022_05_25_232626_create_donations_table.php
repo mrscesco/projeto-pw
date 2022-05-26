@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('donation', function (Blueprint $table) {
+        Schema::create('donations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->date('postdate');
@@ -24,7 +24,7 @@ return new class extends Migration
             /* chave estrangeira */
 
             $table->unsignedBigInteger('id_gender');
-            $table->foreign('id_gender')->references('id')->on('gender');     
+            $table->foreign('id_gender')->references('id')->on('genders');     
 
             $table->unsignedBigInteger('id_users');
             $table->foreign('id_users')->references('id')->on('users'); 
